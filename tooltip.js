@@ -1,6 +1,6 @@
 class GlobalTooltip extends HTMLElement {
   connectedCallback() {
-    this.style.position = "absolute";
+    this.style.position = "fixed";
     this.style.width = "257px";
     this.style.height = "160px";
     this.style.borderRadius = "15px";
@@ -22,8 +22,11 @@ class GlobalTooltip extends HTMLElement {
       if (e.data && e.data.img) {
         this.querySelector("#tooltip-img").src = e.data.img;
         this.querySelector("#tooltip-text").innerText = e.data.text;
-        this.style.left = e.data.x + 20 + 'px';
-        this.style.top = e.data.y + 20 + 'px';
+        
+        // Позиція прямо з Wix
+        this.style.left = e.data.x + 'px';
+        this.style.top = e.data.y + 'px';
+
         this.style.display = "block";
         this.style.opacity = "1";
       }
@@ -36,4 +39,3 @@ class GlobalTooltip extends HTMLElement {
   }
 }
 customElements.define("global-tooltip", GlobalTooltip);
-// JavaScript Document
